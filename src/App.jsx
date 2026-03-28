@@ -15,6 +15,7 @@ const getProducts = async() => {
 function App() {
   
   const [models, setModels] = useState("models");
+  const [cart, setCart] = useState([]);
 
   const productPromise = getProducts();
 
@@ -22,15 +23,15 @@ function App() {
     <>
       <Navbar></Navbar>
       <Banner></Banner>
-      <Tab setModels={setModels}></Tab>
+      <Tab setModels={setModels} cart={cart}></Tab>
       <Suspense
         fallback={<span className="loading loading-spinner loading-xl"></span>}
       >
         {models === "models" && (
-          <Products productPromise={productPromise}></Products>
+          <Products productPromise={productPromise} cart={cart} setCart={setCart}></Products>
         )}
       </Suspense>
-      {models === "cart" && <Cart></Cart>}
+      {models === "cart" && <Cart cart={cart}></Cart>}
 
       <Footer></Footer>
     </>

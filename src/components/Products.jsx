@@ -1,7 +1,7 @@
 import React, { use } from 'react';
 import Product from './Product';
 
-const Products = ({ productPromise }) => {
+const Products = ({ productPromise, cart, setCart }) => {
     const products = use(productPromise);
     console.log(products);
     return (
@@ -14,7 +14,7 @@ const Products = ({ productPromise }) => {
         </div>
         <div className='max-w-7xl mx-auto grid sm:grid-cols-3 gap-10 mb-10'>
           {products.map((product) => (
-            <Product key={product.id} product={product}></Product>
+            <Product key={product.id} product={product} cart={cart} setCart={setCart}></Product>
           ))}
         </div>
       </div>

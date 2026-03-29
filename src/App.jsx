@@ -31,7 +31,7 @@ function App() {
           <Products productPromise={productPromise} cart={cart} setCart={setCart}></Products>
         )}
       </Suspense>
-      {models === "cart" && <Cart cart={cart}></Cart>}
+      {models === "cart" && <Cart cart={cart} setCart={setCart}></Cart>}
 
       <Footer></Footer>
     </>

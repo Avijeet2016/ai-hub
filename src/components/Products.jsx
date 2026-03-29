@@ -3,7 +3,7 @@ import Product from './Product';
 
 const Products = ({ productPromise, cart, setCart }) => {
     const products = use(productPromise);
-    console.log(products);
+    
     return (
       <div>
         <div className="text-center space-y-3 mb-10">
